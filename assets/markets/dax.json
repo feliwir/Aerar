@@ -1,0 +1,25 @@
+{
+    "description": "Deutscher Aktienindex",
+    "stocks": [
+        {
+            "company": "Adidas AG",
+            "symbol": "ADS"
+        },
+        {
+            "company": "Allianz SE",
+            "symbol": "ALV"
+        },
+        {
+            "company": "BASF SE",
+            "symbol": "BAS.DE"
+        },
+        {
+            "company": "Bayer AG",
+            "symbol": "BAYN.DE"
+        },
+        {
+            "company": "SAP SE",
+            "symbol": "SAP"
+        }
+    ]
+}

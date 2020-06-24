@@ -3,11 +3,11 @@
     "stocks": [
         {
             "company": "Adidas AG",
-            "symbol": "ADS"
+            "symbol": "ADS.DE"
         },
         {
             "company": "Allianz SE",
-            "symbol": "ALV"
+            "symbol": "ALV.DE"
         },
         {
             "company": "BASF SE",
@@ -18,8 +18,112 @@
             "symbol": "BAYN.DE"
         },
         {
+            "company": "Beiersdorf AG",
+            "symbol": "BEI.DE"
+        },
+        {
+            "company": "BMW Group",
+            "symbol": "BMW.DE"
+        },
+        {
+            "company": "Continental AG",
+            "symbol": "CON.DE"
+        },
+        {
+            "company": "Covestra AG",
+            "symbol": "1COV.DE"
+        },
+        {
+            "company": "Daimler AG",
+            "symbol": "DAI.DE"
+        },
+        {
+            "company": "Deutsche Bank AG",
+            "symbol": "DBK.DE"
+        },
+        {
+            "company": "Deutsche Börse AG",
+            "symbol": "DB1.DE"
+        },
+        {
+            "company": "Deutsche Post AG",
+            "symbol": "DPW.DE"
+        },
+        {
+            "company": "Deutsche Telekom AG",
+            "symbol": "DTE.DE"
+        },
+        {
+            "company": "Deutsche Wohnen SE",
+            "symbol": "DWNI.DE"
+        },
+        {
+            "company": "E.ON SE",
+            "symbol": "EOAN.DE"
+        },
+        {
+            "company": "Fresenius SE & Co. KGaA",
+            "symbol": "FRE.DE"
+        },
+        {
+            "company": "Fresenius Medical Care AG & Co. KGaA",
+            "symbol": "FME.DE"
+        },
+        {
+            "company": "HeidelbergCement AG",
+            "symbol": "HEI.DE"
+        },
+        {
+            "company": "Henkel AG & Co. KGaA",
+            "symbol": "HEN3.DE"
+        },
+        {
+            "company": "Infineon Technologies AG",
+            "symbol": "IFX.DE"
+        },
+        {
+            "company": "Linde AG",
+            "symbol": "LIN.DE"
+        },
+        {
+            "company": "Merck KGaA",
+            "symbol": "MRK.DE"
+        },
+        {
+            "company": "MTU Aero Engines AG",
+            "symbol": "MTX.DE"
+        },
+        {
+            "company": "Merck KGaA",
+            "symbol": "MRK.DE"
+        },
+        {
+            "company": "Münchener Rückversicherungs-Gesellschaft AG",
+            "symbol": "MUV2.DE"
+        },
+        {
+            "company": "RWE AG",
+            "symbol": "RWE.DE"
+        },
+        {
             "company": "SAP SE",
-            "symbol": "SAP"
+            "symbol": "SAP.DE"
+        },
+        {
+            "company": "Siemens AG",
+            "symbol": "SIE.DE"
+        },
+        {
+            "company": "Volkswagen AG",
+            "symbol": "VOW3.DE"
+        },
+        {
+            "company": "Vonovia SE",
+            "symbol": "VNA.DE"
+        },
+        {
+            "company": "Wirecard AG",
+            "symbol": "WDI.DE"
         }
     ]
 }

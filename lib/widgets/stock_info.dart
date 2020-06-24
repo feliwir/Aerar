@@ -1,8 +1,9 @@
 import 'package:Aerar/view_models/stock_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class StockInfo extends StatefulWidget {
-  StockViewModel _stock;
+  final StockViewModel _stock;
   StockInfo(this._stock);
 
   @override
@@ -24,21 +25,22 @@ class _StockInfoState extends State<StockInfo> {
     if (_fetching) {
       return CircularProgressIndicator();
     } else {
+      var change = NumberFormat.simpleCurrency(name: _stock.currency).format(_stock.price);
+      var changeColor =
+          (double.parse(_stock.change) > 0.0) ? Colors.green : Colors.red;
       return Column(children: <Widget>[
-        Text("\$${_stock.price}",
-            style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-                fontWeight: FontWeight.w500)),
+        Text(change,
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500)),
         Container(
-          width: 75,
-          height: 24,
-          child:
-              Text("\$${_stock.change}", style: TextStyle(color: Colors.white)),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5), color: Colors.red),
-        )
+            width: 75,
+            height: 24,
+            child: Text("${_stock.change}%",
+                style: TextStyle(color: Colors.white)),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              color: changeColor,
+            ))
       ]);
     }
   }

@@ -1,5 +1,5 @@
 import 'package:Aerar/models/stock.dart';
-import 'package:finance_quote/finance_quote.dart';
+import 'package:fin_quote/fin_quote.dart';
 
 class StockViewModel {
   final Stock stock;
@@ -22,13 +22,20 @@ class StockViewModel {
     return stock.change;
   }
 
+  String get currency {
+    return stock.currency;
+  }
+
   Future<void> fetchStock() async {
-   final quotePrice =
-      await FinanceQuote.getPrice(
-          quoteProvider: QuoteProvider.yahoo, symbols: <String>[stock.symbol]);
+    final quotePrice = await FinanceQuote.getPrice(
+        quoteProvider: QuoteProvider.yahoo, symbols: <String>[stock.symbol]);
+
+    if(quotePrice.isEmpty)
+      return;
 
     final price = double.parse(quotePrice[stock.symbol]['price']);
+    final change = quotePrice[stock.symbol]['change'];
     final currency = quotePrice[stock.symbol]['currency'];
-    stock.update(price, currency);
+    stock.update(price, change, currency);
   }
 }

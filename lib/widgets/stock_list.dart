@@ -20,13 +20,8 @@ class StockList extends StatelessWidget {
 
         return ListTile(
             contentPadding: EdgeInsets.all(10),
-            title: Text(stock.symbol,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.w500)),
-            subtitle: Text(stock.company,
-                style: TextStyle(color: Colors.grey[500], fontSize: 20)),
+            title: Text(stock.company, style: TextStyle(fontSize: 24)),
+            subtitle: Text(stock.symbol),
             trailing: StockInfo(stock));
       },
     );

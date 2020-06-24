@@ -14,6 +14,13 @@ class Aerar extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: "Aerar",
+        theme: ThemeData(
+          brightness: Brightness.light,
+          primaryColor: Colors.red,
+        ),
+        darkTheme: ThemeData(
+          brightness: Brightness.dark,
+        ),
         home: ChangeNotifierProvider(
             create: (_) => StockListViewModel(), child: HomePage()));
   }

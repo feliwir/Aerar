@@ -30,8 +30,7 @@ class StockViewModel {
     final quotePrice = await FinanceQuote.getPrice(
         quoteProvider: QuoteProvider.yahoo, symbols: <String>[stock.symbol]);
 
-    if(quotePrice.isEmpty)
-      return;
+    if (quotePrice.isEmpty) return;
 
     final price = double.parse(quotePrice[stock.symbol]['price']);
     final change = quotePrice[stock.symbol]['change'];

@@ -25,7 +25,8 @@ class _StockInfoState extends State<StockInfo> {
     if (_fetching) {
       return CircularProgressIndicator();
     } else {
-      var change = NumberFormat.simpleCurrency(name: _stock.currency).format(_stock.price);
+      var change = NumberFormat.simpleCurrency(name: _stock.currency)
+          .format(_stock.price);
       var changeColor =
           (double.parse(_stock.change) > 0.0) ? Colors.green : Colors.red;
       return Column(children: <Widget>[

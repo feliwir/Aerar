@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'generated/l10n.dart';
 
 import 'pages/home_page.dart';
 import 'view_models/stock_list_view_model.dart';
@@ -13,6 +16,14 @@ class Aerar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        locale: Locale('de', ''),
+        localizationsDelegates: [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: S.delegate.supportedLocales,
         title: "Aerar",
         theme: ThemeData(
           brightness: Brightness.light,

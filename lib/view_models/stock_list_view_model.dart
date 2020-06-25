@@ -18,7 +18,8 @@ class StockListViewModel extends ChangeNotifier {
       stocks = allStocks;
     } else {
       stocks = allStocks
-          .where((stock) => stock.symbol.startsWith(searchTerm))
+          .where((stock) =>
+              stock.company.toLowerCase().contains(searchTerm.toLowerCase()))
           .toList();
     }
     notifyListeners();

@@ -1,5 +1,6 @@
 import 'package:Aerar/generated/l10n.dart';
 import 'package:Aerar/view_models/stock_list_view_model.dart';
+import 'package:Aerar/widgets/settings.dart';
 import 'package:Aerar/widgets/stock_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -33,6 +34,7 @@ class _HomePageState extends State<HomePage> {
 
     switch (_selectedIndex) {
       case 0:
+      case 1:
         return Expanded(
             child: Container(
                 padding: EdgeInsets.all(10),
@@ -67,11 +69,7 @@ class _HomePageState extends State<HomePage> {
                 )));
         break;
       case 2:
-        return RaisedButton(
-            child: Text('Show About Dialog'),
-            onPressed: () {
-              showAboutDialog(context: context);
-            });
+        return Settings();
         break;
       default:
         return Container();

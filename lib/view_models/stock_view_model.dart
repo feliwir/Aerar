@@ -3,6 +3,7 @@ import 'package:fin_quote/fin_quote.dart';
 
 class StockViewModel {
   final Stock stock;
+  bool _favorite = false;
 
   StockViewModel({this.stock});
 
@@ -24,6 +25,14 @@ class StockViewModel {
 
   String get currency {
     return stock.currency;
+  }
+
+  bool get favorite {
+    return _favorite;
+  }
+
+  void toggleFavorite() {
+    _favorite = !_favorite;
   }
 
   Future<void> fetchStock() async {

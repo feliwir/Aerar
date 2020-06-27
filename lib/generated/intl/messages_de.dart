@@ -21,6 +21,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
+        "aboutDialog": MessageLookupByLibrary.simpleMessage("Über Aerar"),
         "favorites": MessageLookupByLibrary.simpleMessage("Favoriten"),
         "search": MessageLookupByLibrary.simpleMessage("Suche"),
         "settings": MessageLookupByLibrary.simpleMessage("Einstellungen"),

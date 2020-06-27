@@ -73,6 +73,16 @@ class S {
       args: [],
     );
   }
+
+  /// `About Aerar`
+  String get aboutDialog {
+    return Intl.message(
+      'About Aerar',
+      name: 'aboutDialog',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

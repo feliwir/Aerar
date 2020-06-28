@@ -26,51 +26,56 @@ class _HomePageState extends State<HomePage> {
     _vm.search(searchTerm);
   }
 
-  Widget _buildContent(BuildContext context) {
+  Widget _buildStockView(BuildContext context) {
     final vm = Provider.of<StockListViewModel>(context);
     final locale = Localizations.localeOf(context);
     final formatter = new DateFormat.yMMMMd(locale.toLanguageTag());
     final today = formatter.format(DateTime.now());
 
+    return Expanded(
+        child: Container(
+            padding: EdgeInsets.all(10),
+            child: SafeArea(
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(today,
+                        style: TextStyle(
+                            fontSize: 30, fontWeight: FontWeight.bold)),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8),
+                      child: SizedBox(
+                          height: 50,
+                          child: TextField(
+                            onChanged: _filterStocks,
+                            decoration: InputDecoration(
+                                hintText: S.of(context).search,
+                                prefix: Icon(Icons.search),
+                                filled: true,
+                                border: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        width: 0, style: BorderStyle.none),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(16)))),
+                          )),
+                    ),
+                    Expanded(
+                        //height: MediaQuery.of(context).size.height - 200,
+                        child: StockList(stocks: vm.stocks))
+                  ]),
+            )));
+  }
+
+  Widget _buildContent(BuildContext context) {
     switch (_selectedIndex) {
       case 0:
+        _vm.onlyFavorites = false;
+        return _buildStockView(context);
       case 1:
-        return Expanded(
-            child: Container(
-                padding: EdgeInsets.all(10),
-                child: SafeArea(
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(today,
-                            style: TextStyle(
-                                fontSize: 30, fontWeight: FontWeight.bold)),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8),
-                          child: SizedBox(
-                              height: 50,
-                              child: TextField(
-                                onChanged: _filterStocks,
-                                decoration: InputDecoration(
-                                    hintText: S.of(context).search,
-                                    prefix: Icon(Icons.search),
-                                    filled: true,
-                                    border: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 0, style: BorderStyle.none),
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(16)))),
-                              )),
-                        ),
-                        Expanded(
-                            //height: MediaQuery.of(context).size.height - 200,
-                            child: StockList(stocks: vm.stocks))
-                      ]),
-                )));
-        break;
+        _vm.onlyFavorites = true;
+        return _buildStockView(context);
       case 2:
         return Settings();
-        break;
       default:
         return Container();
     }

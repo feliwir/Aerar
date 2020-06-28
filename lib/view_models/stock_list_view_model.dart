@@ -3,25 +3,38 @@ import '../webservice.dart';
 import 'stock_view_model.dart';
 
 class StockListViewModel extends ChangeNotifier {
-  List<StockViewModel> stocks = List<StockViewModel>();
+  List<StockViewModel> _stocks = List<StockViewModel>();
   List<StockViewModel> allStocks = List<StockViewModel>();
+  bool _onlyFavorites = false;
 
   Future<void> fetchStocks() async {
     final result = await Webservice().getStocks();
-    stocks = result.map((stock) => StockViewModel(stock: stock)).toList();
-    allStocks = stocks;
+    _stocks = result.map((stock) => StockViewModel(stock: stock)).toList();
+    allStocks = _stocks;
+    notifyListeners();
+  }
+
+  get stocks {
+    return _stocks
+        .where((stock) => !_onlyFavorites || (_onlyFavorites && stock.favorite))
+        .toList();
+  }
+
+  set onlyFavorites(bool onlyFavorites) {
+    _onlyFavorites = onlyFavorites;
     notifyListeners();
   }
 
   void search(String searchTerm) {
     if (searchTerm.isEmpty) {
-      stocks = allStocks;
+      _stocks = allStocks;
     } else {
-      stocks = allStocks
+      _stocks = allStocks
           .where((stock) =>
               stock.company.toLowerCase().contains(searchTerm.toLowerCase()))
           .toList();
     }
+
     notifyListeners();
   }
 }

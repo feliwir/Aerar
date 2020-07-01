@@ -27,6 +27,14 @@ class StockViewModel {
     return stock.currency;
   }
 
+  List<DateTime> get timestamps {
+    return stock.history['timestamps'] as List<DateTime>;
+  }
+
+  List<dynamic> get pricesClosed {
+    return stock.history['close'] as List<dynamic>;
+  }
+
   bool get favorite {
     return _favorite;
   }
@@ -35,8 +43,8 @@ class StockViewModel {
     _favorite = !_favorite;
   }
 
-  Future<void> fetchStock() async {
-    final quotePrice = await FinanceQuote.getPrice(
+  Future<void> fetchStockInfo() async {
+    final quotePrice = await FinanceQuote.getInfo(
         quoteProvider: QuoteProvider.yahoo, symbols: <String>[stock.symbol]);
 
     if (quotePrice.isEmpty) return;
@@ -44,6 +52,15 @@ class StockViewModel {
     final price = double.parse(quotePrice[stock.symbol]['price']);
     final change = quotePrice[stock.symbol]['change'];
     final currency = quotePrice[stock.symbol]['currency'];
-    stock.update(price, change, currency);
+    stock.updateInfo(price, change, currency);
+  }
+
+  Future<void> fetchStockHistory() async {
+    final stockHistory = await FinanceQuote.getHistoricalData(
+        quoteProvider: QuoteProvider.yahoo, symbol: stock.symbol);
+
+    if (stockHistory.isEmpty) return;
+
+    stock.updateHistory(stockHistory);
   }
 }

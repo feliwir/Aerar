@@ -15,7 +15,7 @@ class _StockInfoState extends State<StockInfo> {
   bool _fetching = true;
 
   _StockInfoState(this._stock) {
-    _stock.fetchStock().then((value) => setState(() {
+    _stock.fetchStockInfo().then((value) => setState(() {
           _fetching = false;
         }));
   }

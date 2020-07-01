@@ -8,6 +8,8 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
+  static const String routeName = "/";
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -97,8 +99,8 @@ class _HomePageState extends State<HomePage> {
         labelType: NavigationRailLabelType.selected,
         destinations: [
           NavigationRailDestination(
-            icon: Icon(Icons.graphic_eq),
-            selectedIcon: Icon(Icons.graphic_eq),
+            icon: Icon(Icons.show_chart),
+            selectedIcon: Icon(Icons.show_chart),
             label: Text(S.of(context).stocks),
           ),
           NavigationRailDestination(

@@ -4,6 +4,7 @@ class Stock {
   double price = 0.0;
   String change = "N/A";
   String currency = "";
+  Map<String, dynamic> history;
 
   Stock({this.symbol, this.company, this.price, this.change});
 
@@ -11,9 +12,13 @@ class Stock {
     return Stock(company: json["company"], symbol: json["symbol"]);
   }
 
-  void update(double price, String change, String currency) {
+  void updateInfo(double price, String change, String currency) {
     this.price = price;
     this.change = change;
     this.currency = currency;
+  }
+
+  void updateHistory(Map<String, dynamic> history) {
+    this.history = history;
   }
 }

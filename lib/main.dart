@@ -1,10 +1,11 @@
+import 'package:Aerar/pages/stock_page.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'generated/l10n.dart';
 
 import 'pages/home_page.dart';
+import 'pages/routes.dart';
 import 'view_models/stock_list_view_model.dart';
 
 void main() {
@@ -27,12 +28,14 @@ class Aerar extends StatelessWidget {
         title: "Aerar",
         theme: ThemeData(
           brightness: Brightness.light,
-          primaryColor: Colors.red,
         ),
         darkTheme: ThemeData(
           brightness: Brightness.dark,
         ),
-        home: ChangeNotifierProvider(
-            create: (_) => StockListViewModel(), child: HomePage()));
+        routes: {
+          Routes.homePage: (BuildContext context) => ChangeNotifierProvider(
+              create: (_) => StockListViewModel(), child: HomePage()),
+          Routes.stockPage: (BuildContext context) => StockPage()
+        });
   }
 }
